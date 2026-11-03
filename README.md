@@ -12,7 +12,6 @@ This repository contains 10 experiments demonstrating the step-by-step developme
 
 **Output:**
 
-![Experiment 1 Output](Experiment-01-Dart-Basics/screenshots/dart_output.png)
 <img width="335" height="232" alt="image" src="https://github.com/user-attachments/assets/08a491c8-8ad3-43ea-a409-d4488a76e0f1" />
 
 
@@ -22,7 +21,10 @@ This repository contains 10 experiments demonstrating the step-by-step developme
 
 **Description:** Explores basic Flutter widgets such as Text, Container, Image, Row, Column and Card to design the SkillSwap home screen.
 
-**Output:** To be added.
+**Output:** 
+
+<img width="1297" height="987" alt="image" src="https://github.com/user-attachments/assets/17db564c-325e-4eb0-9937-e61817de4b9c" />
+
 
 ---
 
