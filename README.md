@@ -12,7 +12,7 @@ This repository contains 10 experiments demonstrating the step-by-step developme
 
 **Output:**
 
-![Experiment 1 Output](Experiment-01-Dart-Basics/screenshots/dart-output.png)
+![Experiment 1 Output](Experiment-01-Dart-Basics/screenshots/dart_output.png)
 
 ---
 
