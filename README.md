@@ -1,49 +1,91 @@
-# SkillSwap
+# SkillSwap – Flutter Lab Experiments
 
-SkillSwap is a Flutter app where students can connect with each other to
-learn and share skills.
+**Technology Used:** Flutter and Dart
 
-The idea is simple — if you know something that someone else wants to
-learn, and they have a skill that you want to learn, you can connect and
-exchange skills.
+This repository contains 10 experiments demonstrating the step-by-step development of the SkillSwap application, a platform where students can connect and exchange skills.
 
-## Features
+---
 
-- User login and signup
-- Student profiles
-- Add skills you can teach
-- Add skills you want to learn
-- Search and browse skills
-- View other students' profiles
-- Send and manage skill-swap requests
-- Chat between students
-- Ratings and reviews
+## Experiment 1 – Dart Basics
 
-## Tech Used
+**Description:** Introduces the fundamentals of Dart programming, including variables, data types, operators, conditional statements, loops, lists and functions.
 
-- Flutter
-- Dart
-- Firebase
+**Output:**
 
-## How it works
+![Experiment 1 Output](Experiment-01-Dart-Basics/screenshots/dart-output.png)
 
-1. Create an account
-2. Add the skills you can teach
-3. Add the skills you want to learn
-4. Find students with matching skills
-5. Send a skill-swap request
-6. Connect and learn from each other
+---
 
-## Future Ideas
+## Experiment 2 – Widgets and Layouts
 
-- Notifications
-- Session scheduling
-- Video/voice calls
-- Skill recommendations
-- Learning progress tracking
-- Group learning
+**Description:** Explores basic Flutter widgets such as Text, Container, Image, Row, Column and Card to design the SkillSwap home screen.
 
-## Project
+**Output:** To be added.
 
-This is a college academic project developed to explore Flutter
-application development and Firebase integration.
+---
+
+## Experiment 3 – Responsive UI
+
+**Description:** Develops a responsive user interface using Flutter layouts and screen-size properties so the application adjusts to different screen sizes.
+
+**Output:** To be added.
+
+---
+
+## Experiment 4 – Navigation
+
+**Description:** Implements navigation between different screens using Flutter navigation techniques, allowing users to move through the application.
+
+**Output:** To be added.
+
+---
+
+## Experiment 5 – State Management
+
+**Description:** Demonstrates state management to update the user interface dynamically when application data changes.
+
+**Output:** To be added.
+
+---
+
+## Experiment 6 – Custom Widgets
+
+**Description:** Creates reusable custom widgets for elements such as skill cards, profile sections and buttons to maintain a consistent design.
+
+**Output:** To be added.
+
+---
+
+## Experiment 7 – Forms and Validation
+
+**Description:** Develops input forms for user registration and profile details, including validation to ensure correct user input.
+
+**Output:** To be added.
+
+---
+
+## Experiment 8 – Animations
+
+**Description:** Adds Flutter animations and transitions to improve the appearance and interactivity of the SkillSwap application.
+
+**Output:** To be added.
+
+---
+
+## Experiment 9 – REST API Integration
+
+**Description:** Integrates REST APIs to fetch data from external sources and display the retrieved information in the application.
+
+**Output:** To be added.
+
+---
+
+## Experiment 10 – Testing and Debugging
+
+**Description:** Performs application testing, identifies errors and uses debugging techniques to improve the reliability and performance of the application.
+
+**Output:** To be added.
+
+---
+
+**Project:** SkillSwap – A student skill-sharing platform developed using Flutter and Dart.
