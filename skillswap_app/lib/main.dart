@@ -1,4 +1,5 @@
 
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,9 +14,7 @@ class SkillSwapApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'SkillSwap',
-      theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
-      ),
+      theme: ThemeData(primarySwatch: Colors.deepPurple),
       home: const HomePage(),
     );
   }
@@ -33,62 +32,77 @@ class HomePage extends StatelessWidget {
         foregroundColor: Colors.white,
       ),
 
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              'Hello, Student!',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          double width = constraints.maxWidth;
 
-            const SizedBox(height: 8),
+          int columns = width < 600 ? 1 : width < 900 ? 2 : 3;
 
-            const Text(
-              'What would you like to learn today?',
-              style: TextStyle(fontSize: 16),
-            ),
+          return SingleChildScrollView(
+            padding: const EdgeInsets.all(20),
+            child: Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 1100),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'Hello, Student!',
+                      style: TextStyle(
+                        fontSize: 26,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
 
-            const SizedBox(height: 20),
+                    const SizedBox(height: 10),
 
-            TextField(
-              decoration: InputDecoration(
-                hintText: 'Search skills...',
-                prefixIcon: const Icon(Icons.search),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
+                    const Text(
+                      'What would you like to learn today?',
+                      style: TextStyle(fontSize: 16),
+                    ),
+
+                    const SizedBox(height: 20),
+
+                    const TextField(
+                      decoration: InputDecoration(
+                        hintText: 'Search skills...',
+                        prefixIcon: Icon(Icons.search),
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+
+                    const SizedBox(height: 25),
+
+                    const Text(
+                      'Popular Skills',
+                      style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+
+                    const SizedBox(height: 15),
+
+                    GridView.count(
+                      crossAxisCount: columns,
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      crossAxisSpacing: 12,
+                      mainAxisSpacing: 12,
+                      childAspectRatio: width < 600 ? 4 : 2.5,
+                      children: [
+                        skillCard('Flutter Development', Icons.phone_android),
+                        skillCard('Java Programming', Icons.code),
+                        skillCard('UI/UX Design', Icons.design_services),
+                        skillCard('Python Programming', Icons.terminal),
+                      ],
+                    ),
+                  ],
                 ),
               ),
             ),
-
-            const SizedBox(height: 24),
-
-            const Text(
-              'Popular Skills',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-
-            const SizedBox(height: 12),
-
-            Expanded(
-              child: ListView(
-                children: [
-                  skillCard('Flutter Development', Icons.phone_android),
-                  skillCard('Java Programming', Icons.code),
-                  skillCard('UI/UX Design', Icons.design_services),
-                  skillCard('Python Programming', Icons.terminal),
-                ],
-              ),
-            ),
-          ],
-        ),
+          );
+        },
       ),
 
       bottomNavigationBar: BottomNavigationBar(
@@ -113,7 +127,6 @@ class HomePage extends StatelessWidget {
 
   Widget skillCard(String title, IconData icon) {
     return Card(
-      margin: const EdgeInsets.only(bottom: 12),
       elevation: 3,
       child: ListTile(
         leading: CircleAvatar(
@@ -121,7 +134,6 @@ class HomePage extends StatelessWidget {
           child: Icon(icon, color: Colors.deepPurple),
         ),
         title: Text(title),
-        trailing: const Icon(Icons.arrow_forward_ios, size: 16),
       ),
     );
   }
