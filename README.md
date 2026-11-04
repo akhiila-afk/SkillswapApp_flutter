@@ -32,7 +32,9 @@ This repository contains 10 experiments demonstrating the step-by-step developme
 
 **Description:** Develops a responsive user interface using Flutter layouts and screen-size properties so the application adjusts to different screen sizes.
 
-**Output:** To be added.
+**Output:** 
+<img width="992" height="932" alt="image" src="https://github.com/user-attachments/assets/0dd7797f-6f36-4219-8715-1c0b6ccb041e" />
+
 
 ---
 
