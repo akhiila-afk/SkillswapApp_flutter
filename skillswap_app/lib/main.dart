@@ -1,5 +1,4 @@
 
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -31,109 +30,123 @@ class HomePage extends StatelessWidget {
         backgroundColor: Colors.deepPurple,
         foregroundColor: Colors.white,
       ),
-
-      body: LayoutBuilder(
-        builder: (context, constraints) {
-          double width = constraints.maxWidth;
-
-          int columns = width < 600 ? 1 : width < 900 ? 2 : 3;
-
-          return SingleChildScrollView(
-            padding: const EdgeInsets.all(20),
-            child: Center(
-              child: ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 1100),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      'Hello, Student!',
-                      style: TextStyle(
-                        fontSize: 26,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-
-                    const SizedBox(height: 10),
-
-                    const Text(
-                      'What would you like to learn today?',
-                      style: TextStyle(fontSize: 16),
-                    ),
-
-                    const SizedBox(height: 20),
-
-                    const TextField(
-                      decoration: InputDecoration(
-                        hintText: 'Search skills...',
-                        prefixIcon: Icon(Icons.search),
-                        border: OutlineInputBorder(),
-                      ),
-                    ),
-
-                    const SizedBox(height: 25),
-
-                    const Text(
-                      'Popular Skills',
-                      style: TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-
-                    const SizedBox(height: 15),
-
-                    GridView.count(
-                      crossAxisCount: columns,
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      crossAxisSpacing: 12,
-                      mainAxisSpacing: 12,
-                      childAspectRatio: width < 600 ? 4 : 2.5,
-                      children: [
-                        skillCard('Flutter Development', Icons.phone_android),
-                        skillCard('Java Programming', Icons.code),
-                        skillCard('UI/UX Design', Icons.design_services),
-                        skillCard('Python Programming', Icons.terminal),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
+      body: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              'Welcome to SkillSwap!',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-          );
-        },
-      ),
+            const SizedBox(height: 10),
+            const Text('Learn new skills and share what you know.'),
+            const SizedBox(height: 30),
 
-      bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.deepPurple,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
+            const Text(
+              'Explore SkillSwap',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+
+            const SizedBox(height: 15),
+
+            ElevatedButton.icon(
+              icon: const Icon(Icons.search),
+              label: const Text('Explore Skills'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ExplorePage(),
+                  ),
+                );
+              },
+            ),
+
+            const SizedBox(height: 15),
+
+            ElevatedButton.icon(
+              icon: const Icon(Icons.person),
+              label: const Text('My Profile'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ProfilePage(),
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class ExplorePage extends StatelessWidget {
+  const ExplorePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Explore Skills'),
+        backgroundColor: Colors.deepPurple,
+        foregroundColor: Colors.white,
+      ),
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: const [
+          ListTile(
+            leading: Icon(Icons.code),
+            title: Text('Java Programming'),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Explore',
+          ListTile(
+            leading: Icon(Icons.phone_android),
+            title: Text('Flutter Development'),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
+          ListTile(
+            leading: Icon(Icons.design_services),
+            title: Text('UI/UX Design'),
+          ),
+          ListTile(
+            leading: Icon(Icons.terminal),
+            title: Text('Python Programming'),
           ),
         ],
       ),
     );
   }
+}
 
-  Widget skillCard(String title, IconData icon) {
-    return Card(
-      elevation: 3,
-      child: ListTile(
-        leading: CircleAvatar(
-          backgroundColor: Colors.deepPurple.shade100,
-          child: Icon(icon, color: Colors.deepPurple),
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('My Profile'),
+        backgroundColor: Colors.deepPurple,
+        foregroundColor: Colors.white,
+      ),
+      body: const Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            CircleAvatar(
+              radius: 45,
+              child: Icon(Icons.person, size: 50),
+            ),
+            SizedBox(height: 15),
+            Text(
+              'Student Name',
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            ),
+            Text('Flutter Developer'),
+          ],
         ),
-        title: Text(title),
       ),
     );
   }
