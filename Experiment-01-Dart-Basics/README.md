@@ -21,4 +21,5 @@ This program demonstrates Dart basics using a student skill-sharing scenario fro
 5. Use an if statement to check availability.
 
 ## Output
-Refer to `screenshots/dart-output.png`.
+
+![Dart Output](screenshots/dart-output.png)
