@@ -1,8 +1,35 @@
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const SkillSwapApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => SkillProvider(),
+      child: const SkillSwapApp(),
+    ),
+  );
+}
+
+class SkillProvider extends ChangeNotifier {
+  List<String> skills = [
+    'Flutter Development',
+    'Java Programming',
+    'UI/UX Design',
+    'Python Programming',
+  ];
+
+  void addSkill(String skill) {
+    if (skill.trim().isNotEmpty) {
+      skills.add(skill.trim());
+      notifyListeners();
+    }
+  }
+
+  void removeSkill(int index) {
+    skills.removeAt(index);
+    notifyListeners();
+  }
 }
 
 class SkillSwapApp extends StatelessWidget {
@@ -13,7 +40,10 @@ class SkillSwapApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'SkillSwap',
-      theme: ThemeData(primarySwatch: Colors.deepPurple),
+      theme: ThemeData(
+        colorSchemeSeed: Colors.deepPurple,
+        useMaterial3: true,
+      ),
       home: const HomePage(),
     );
   }
@@ -24,127 +54,54 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final skillProvider = Provider.of<SkillProvider>(context);
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('SkillSwap'),
+        title: const Text('SkillSwap - Manage Skills'),
         backgroundColor: Colors.deepPurple,
         foregroundColor: Colors.white,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              'Welcome to SkillSwap!',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 10),
-            const Text('Learn new skills and share what you know.'),
-            const SizedBox(height: 30),
-
-            const Text(
-              'Explore SkillSwap',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-
-            const SizedBox(height: 15),
-
-            ElevatedButton.icon(
-              icon: const Icon(Icons.search),
-              label: const Text('Explore Skills'),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const ExplorePage(),
-                  ),
-                );
-              },
-            ),
-
-            const SizedBox(height: 15),
-
-            ElevatedButton.icon(
-              icon: const Icon(Icons.person),
-              label: const Text('My Profile'),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const ProfilePage(),
-                  ),
-                );
-              },
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class ExplorePage extends StatelessWidget {
-  const ExplorePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Explore Skills'),
-        backgroundColor: Colors.deepPurple,
-        foregroundColor: Colors.white,
-      ),
-      body: ListView(
         padding: const EdgeInsets.all(16),
-        children: const [
-          ListTile(
-            leading: Icon(Icons.code),
-            title: Text('Java Programming'),
-          ),
-          ListTile(
-            leading: Icon(Icons.phone_android),
-            title: Text('Flutter Development'),
-          ),
-          ListTile(
-            leading: Icon(Icons.design_services),
-            title: Text('UI/UX Design'),
-          ),
-          ListTile(
-            leading: Icon(Icons.terminal),
-            title: Text('Python Programming'),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('My Profile'),
-        backgroundColor: Colors.deepPurple,
-        foregroundColor: Colors.white,
-      ),
-      body: const Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CircleAvatar(
-              radius: 45,
-              child: Icon(Icons.person, size: 50),
+            TextField(
+              decoration: const InputDecoration(
+                labelText: 'Enter a skill',
+                border: OutlineInputBorder(),
+              ),
+              onSubmitted: (value) {
+                skillProvider.addSkill(value);
+              },
             ),
-            SizedBox(height: 15),
-            Text(
-              'Student Name',
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            const SizedBox(height: 16),
+            const Text(
+              'Available Skills',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-            Text('Flutter Developer'),
+            Expanded(
+              child: ListView.builder(
+                itemCount: skillProvider.skills.length,
+                itemBuilder: (context, index) {
+                  return Card(
+                    child: ListTile(
+                      leading: const Icon(Icons.school),
+                      title: Text(skillProvider.skills[index]),
+                      trailing: IconButton(
+                        icon: const Icon(Icons.delete, color: Colors.red),
+                        onPressed: () {
+                          skillProvider.removeSkill(index);
+                        },
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),
