@@ -14,195 +14,126 @@ class SkillSwapApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'SkillSwap',
       theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
-        scaffoldBackgroundColor: Colors.grey.shade100,
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.deepPurple,
-          foregroundColor: Colors.white,
-        ),
-        cardTheme: CardThemeData(
-          elevation: 3,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
-        ),
+        colorSchemeSeed: Colors.deepPurple,
+        useMaterial3: true,
       ),
-      home: const HomePage(),
+      home: const SkillsPage(),
     );
   }
 }
 
-// Reusable Skill Card
-class SkillCard extends StatelessWidget {
-  final String skill;
-  final IconData icon;
-
-  const SkillCard({
-    super.key,
-    required this.skill,
-    required this.icon,
-  });
+class SkillsPage extends StatefulWidget {
+  const SkillsPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Card(
-      child: ListTile(
-        leading: Icon(icon, color: Colors.deepPurple),
-        title: Text(skill),
-        trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-      ),
-    );
-  }
+  State<SkillsPage> createState() => _SkillsPageState();
 }
 
-// Reusable Student Card
-class StudentCard extends StatelessWidget {
-  final String name;
-  final String course;
+class _SkillsPageState extends State<SkillsPage> {
+  final List<Map<String, String>> skills = [
+    {'name': 'Flutter Development', 'category': 'Programming'},
+    {'name': 'Java Programming', 'category': 'Programming'},
+    {'name': 'Python Programming', 'category': 'Programming'},
+    {'name': 'UI/UX Design', 'category': 'Design'},
+    {'name': 'Graphic Design', 'category': 'Design'},
+    {'name': 'Communication Skills', 'category': 'Soft Skills'},
+  ];
 
-  const StudentCard({
-    super.key,
-    required this.name,
-    required this.course,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      child: ListTile(
-        leading: const CircleAvatar(
-          backgroundColor: Colors.deepPurple,
-          child: Icon(Icons.person, color: Colors.white),
-        ),
-        title: Text(name),
-        subtitle: Text(course),
-      ),
-    );
-  }
-}
-
-// Reusable App Button
-class AppButton extends StatelessWidget {
-  final String text;
-  final VoidCallback onPressed;
-
-  const AppButton({
-    super.key,
-    required this.text,
-    required this.onPressed,
-  });
+  String searchText = '';
+  String selectedCategory = 'All';
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.deepPurple,
-        foregroundColor: Colors.white,
-        padding: const EdgeInsets.symmetric(
-          horizontal: 24,
-          vertical: 12,
-        ),
-      ),
-      onPressed: onPressed,
-      child: Text(text),
-    );
-  }
-}
+    final filteredSkills = skills.where((skill) {
+      final matchesSearch = skill['name']!
+          .toLowerCase()
+          .contains(searchText.toLowerCase());
 
-// Reusable Profile Header
-class ProfileHeader extends StatelessWidget {
-  final String name;
+      final matchesCategory = selectedCategory == 'All' ||
+          skill['category'] == selectedCategory;
 
-  const ProfileHeader({super.key, required this.name});
+      return matchesSearch && matchesCategory;
+    }).toList();
 
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const CircleAvatar(
-          radius: 40,
-          backgroundColor: Colors.deepPurple,
-          child: Icon(Icons.person, size: 45, color: Colors.white),
-        ),
-        const SizedBox(height: 10),
-        Text(
-          name,
-          style: const TextStyle(
-            fontSize: 22,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        const Text('SkillSwap Student'),
-      ],
-    );
-  }
-}
-
-// Home Screen
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('SkillSwap'),
+        title: const Text('SkillSwap - Explore Skills'),
+        backgroundColor: Colors.deepPurple,
+        foregroundColor: Colors.white,
       ),
-      body: SingleChildScrollView(
+      body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Center(
-              child: ProfileHeader(name: 'Student Name'),
-            ),
-            const SizedBox(height: 25),
-
-            const Text(
-              'Student Details',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            const StudentCard(
-              name: 'Rahul',
-              course: 'Flutter Developer',
-            ),
-            const StudentCard(
-              name: 'Priya',
-              course: 'UI/UX Designer',
-            ),
-
-            const SizedBox(height: 20),
-            const Text(
-              'Popular Skills',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            const SkillCard(
-              skill: 'Flutter Development',
-              icon: Icons.phone_android,
-            ),
-            const SkillCard(
-              skill: 'Java Programming',
-              icon: Icons.code,
-            ),
-            const SkillCard(
-              skill: 'UI/UX Design',
-              icon: Icons.design_services,
-            ),
-            const SkillCard(
-              skill: 'Python Programming',
-              icon: Icons.computer,
-            ),
-
-            const SizedBox(height: 20),
-            Center(
-              child: AppButton(
-                text: 'Explore Skills',
-                onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Explore Skills clicked!')),
-                  );
-                },
+            TextField(
+              decoration: const InputDecoration(
+                labelText: 'Search skills',
+                prefixIcon: Icon(Icons.search),
+                border: OutlineInputBorder(),
               ),
+              onChanged: (value) {
+                setState(() {
+                  searchText = value;
+                });
+              },
+            ),
+            const SizedBox(height: 15),
+
+            DropdownButtonFormField<String>(
+              value: selectedCategory,
+              decoration: const InputDecoration(
+                labelText: 'Select Category',
+                border: OutlineInputBorder(),
+              ),
+              items: [
+                'All',
+                'Programming',
+                'Design',
+                'Soft Skills',
+              ].map((category) {
+                return DropdownMenuItem(
+                  value: category,
+                  child: Text(category),
+                );
+              }).toList(),
+              onChanged: (value) {
+                setState(() {
+                  selectedCategory = value!;
+                });
+              },
+            ),
+            const SizedBox(height: 15),
+
+            Text(
+              'Available Skills (${filteredSkills.length})',
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 10),
+
+            Expanded(
+              child: filteredSkills.isEmpty
+                  ? const Center(child: Text('No skills found'))
+                  : ListView.builder(
+                      itemCount: filteredSkills.length,
+                      itemBuilder: (context, index) {
+                        final skill = filteredSkills[index];
+
+                        return Card(
+                          child: ListTile(
+                            leading: const Icon(
+                              Icons.school,
+                              color: Colors.deepPurple,
+                            ),
+                            title: Text(skill['name']!),
+                            subtitle: Text(skill['category']!),
+                            trailing: const Icon(Icons.arrow_forward_ios),
+                          ),
+                        );
+                      },
+                    ),
             ),
           ],
         ),
