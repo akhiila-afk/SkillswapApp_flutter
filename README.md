@@ -12,7 +12,7 @@ This repository contains 10 experiments demonstrating the step-by-step developme
 
 **Output:**
 
-<img width="235" height="222" alt="image" src="https://github.com/user-attachments/assets/08a491c8-8ad3-43ea-a409-d4488a76e0f1" />
+<img width="35" height="122" alt="image" src="https://github.com/user-attachments/assets/08a491c8-8ad3-43ea-a409-d4488a76e0f1" />
 
 
 ---
@@ -56,7 +56,10 @@ This repository contains 10 experiments demonstrating the step-by-step developme
 
 **Description:** Demonstrates state management to update the user interface dynamically when application data changes.
 
-**Output:** To be added.
+**Output:** 
+<img width="992" height="932" alt="Screenshot 2026-11-05 091818" src="https://github.com/user-attachments/assets/5fe39f52-62c5-4bb7-b561-2722b7a0f1a1" />
+<img width="992" height="932" alt="Screenshot 2026-11-05 091836" src="https://github.com/user-attachments/assets/86ec73b8-fa90-427a-8804-74b649424302" />
+
 
 ---
 
@@ -64,7 +67,9 @@ This repository contains 10 experiments demonstrating the step-by-step developme
 
 **Description:** Creates reusable custom widgets for elements such as skill cards, profile sections and buttons to maintain a consistent design.
 
-**Output:** To be added.
+**Output:** 
+<img width="1046" height="1021" alt="Screenshot 2026-11-08 131631" src="https://github.com/user-attachments/assets/f5f65b0b-5927-45ac-b88b-a2c4817f162c" />
+
 
 ---
 
@@ -72,7 +77,9 @@ This repository contains 10 experiments demonstrating the step-by-step developme
 
 **Description:** Develops input forms for user registration and profile details, including validation to ensure correct user input.
 
-**Output:** To be added.
+**Output:** 
+<img width="1046" height="1021" alt="Screenshot 2026-11-08 131631" src="https://github.com/user-attachments/assets/365f06b5-1af4-43bd-bc30-d2fb7161b0cf" />
+
 
 ---
 
@@ -80,23 +87,12 @@ This repository contains 10 experiments demonstrating the step-by-step developme
 
 **Description:** Adds Flutter animations and transitions to improve the appearance and interactivity of the SkillSwap application.
 
-**Output:** To be added.
+**Output:** 
+<img width="1046" height="1021" alt="Screenshot 2026-11-08 132000" src="https://github.com/user-attachments/assets/aaf0ca09-be25-402f-9442-3d499b84f52f" />
+<img width="1046" height="1021" alt="Screenshot 2026-11-08 132006" src="https://github.com/user-attachments/assets/a05cc723-603f-4731-ab02-4f2f6c5017c5" />
 
----
 
-## Experiment 9 – REST API Integration
 
-**Description:** Integrates REST APIs to fetch data from external sources and display the retrieved information in the application.
-
-**Output:** To be added.
-
----
-
-## Experiment 10 – Testing and Debugging
-
-**Description:** Performs application testing, identifies errors and uses debugging techniques to improve the reliability and performance of the application.
-
-**Output:** To be added.
 
 ---
 
