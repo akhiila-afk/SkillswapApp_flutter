@@ -12,7 +12,7 @@ This repository contains 10 experiments demonstrating the step-by-step developme
 
 **Output:**
 
-<img width="135" height="222" alt="image" src="https://github.com/user-attachments/assets/08a491c8-8ad3-43ea-a409-d4488a76e0f1" />
+<img width="235" height="322" alt="image" src="https://github.com/user-attachments/assets/08a491c8-8ad3-43ea-a409-d4488a76e0f1" />
 
 
 ---
@@ -34,7 +34,7 @@ This repository contains 10 experiments demonstrating the step-by-step developme
 
 **Output:** 
 <img width="792" height="732" alt="image" src="https://github.com/user-attachments/assets/0dd7797f-6f36-4219-8715-1c0b6ccb041e" />
-<img width="274" height="487" alt="Screenshot 2026-11-04 200331" src="https://github.com/user-attachments/assets/fd506fc3-448f-42e2-8ee1-2906778d5cc3" />
+<img width="274" height="587" alt="Screenshot 2026-11-04 200331" src="https://github.com/user-attachments/assets/fd506fc3-448f-42e2-8ee1-2906778d5cc3" />
 
 
 ---
@@ -56,8 +56,8 @@ This repository contains 10 experiments demonstrating the step-by-step developme
 **Description:** Demonstrates state management to update the user interface dynamically when application data changes.
 
 **Output:** 
-<img width="992" height="932" alt="Screenshot 2026-11-05 091818" src="https://github.com/user-attachments/assets/5fe39f52-62c5-4bb7-b561-2722b7a0f1a1" />
-<img width="992" height="932" alt="Screenshot 2026-11-05 091836" src="https://github.com/user-attachments/assets/86ec73b8-fa90-427a-8804-74b649424302" />
+<img width="792" height="732" alt="Screenshot 2026-11-05 091818" src="https://github.com/user-attachments/assets/5fe39f52-62c5-4bb7-b561-2722b7a0f1a1" />
+<img width="792" height="732" alt="Screenshot 2026-11-05 091836" src="https://github.com/user-attachments/assets/86ec73b8-fa90-427a-8804-74b649424302" />
 
 
 ---
@@ -67,7 +67,7 @@ This repository contains 10 experiments demonstrating the step-by-step developme
 **Description:** Creates reusable custom widgets for elements such as skill cards, profile sections and buttons to maintain a consistent design.
 
 **Output:** 
-<img width="1046" height="1021" alt="Screenshot 2026-11-08 131631" src="https://github.com/user-attachments/assets/f5f65b0b-5927-45ac-b88b-a2c4817f162c" />
+<img width="846" height="821" alt="Screenshot 2026-11-08 131631" src="https://github.com/user-attachments/assets/f5f65b0b-5927-45ac-b88b-a2c4817f162c" />
 
 
 ---
@@ -77,7 +77,7 @@ This repository contains 10 experiments demonstrating the step-by-step developme
 **Description:** Develops input forms for user registration and profile details, including validation to ensure correct user input.
 
 **Output:** 
-<img width="1046" height="1021" alt="Screenshot 2026-11-08 131631" src="https://github.com/user-attachments/assets/365f06b5-1af4-43bd-bc30-d2fb7161b0cf" />
+<img width="846" height="821" alt="Screenshot 2026-11-08 131631" src="https://github.com/user-attachments/assets/365f06b5-1af4-43bd-bc30-d2fb7161b0cf" />
 
 
 ---
@@ -87,8 +87,8 @@ This repository contains 10 experiments demonstrating the step-by-step developme
 **Description:** Adds Flutter animations and transitions to improve the appearance and interactivity of the SkillSwap application.
 
 **Output:** 
-<img width="1046" height="1021" alt="Screenshot 2026-11-08 132000" src="https://github.com/user-attachments/assets/aaf0ca09-be25-402f-9442-3d499b84f52f" />
-<img width="1046" height="1021" alt="Screenshot 2026-11-08 132006" src="https://github.com/user-attachments/assets/a05cc723-603f-4731-ab02-4f2f6c5017c5" />
+<img width="846" height="821" alt="Screenshot 2026-11-08 132000" src="https://github.com/user-attachments/assets/aaf0ca09-be25-402f-9442-3d499b84f52f" />
+<img width="846" height="821" alt="Screenshot 2026-11-08 132006" src="https://github.com/user-attachments/assets/a05cc723-603f-4731-ab02-4f2f6c5017c5" />
 
 
 
